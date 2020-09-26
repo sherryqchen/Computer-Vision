@@ -31,13 +31,14 @@ class SimpleNet(nn.Module):
     self.cnn_layers.add_module("maxpool_1", torch.nn.MaxPool2d(kernel_size=3))
     self.cnn_layers.add_module("relu_1", torch.nn.ReLU())
     self.cnn_layers.add_module("conv_2", torch.nn.Conv2d(10, 20, kernel_size=5))
-    self.cnn_layers.add_module("maxpool_1", torch.nn.MaxPool2d(kernel_size=3))
+    self.cnn_layers.add_module("maxpool_2", torch.nn.MaxPool2d(kernel_size=3))
     self.cnn_layers.add_module("relu_2", torch.nn.ReLU())
 
     self.fc_layers.add_module("Flatten", torch.nn.Flatten())
     self.fc_layers.add_module("fc1", torch.nn.Linear(500, 100))
     self.fc_layers.add_module("fc2", torch.nn.Linear(100, 15))
-
+    # self.loss_criterion = nn.KLDivLoss(reduction='sum')
+    self.loss_criterion = nn.CrossEntropyLoss(reduction = 'sum')
     # raise NotImplementedError('SimpleNet not initialized')
     ############################################################################
     # Student code end
@@ -60,8 +61,9 @@ class SimpleNet(nn.Module):
     ############################################################################
     # raise NotImplementedError('forward function not implemented')
     model_output = self.cnn_layers(x)
-    print(self.cnn_layers)
     model_output = self.fc_layers(model_output)
+    print(model_output.shape)
+    print(model_output)
     ############################################################################
     # Student code end
     ############################################################################

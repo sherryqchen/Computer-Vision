@@ -44,19 +44,20 @@ def compute_mean_and_std(dir_name: str) -> Tuple[np.ndarray, np.array]:
       subfolders.append(testfolder + '/' + testSub)
   for trainSub in os.listdir(trainfolder):
       subfolders.append(trainfolder + '/' + trainSub)
-
+  print(subfolders)
   # # images under subfolders
   for folders in subfolders:
     pilImg = []
     for filename in os.listdir(folders):
       filename = folders + '/' + filename
+      print(filename)
       pilImg = Image.open(filename).convert('L')
       pilImg = np.array(pilImg).astype('float32')
       pilImg /= 255
       pilImg = pilImg.flatten()
       dataset = np.append(dataset, pilImg)
   dataset = np.expand_dims(dataset, axis=1)
-  scaler = StandardScaler().fit(dataset)
+  scaler = StandardScaler().partial_fit(dataset)
   mean = scaler.mean_
   std = scaler.scale_
   print(f'mean: {mean}')
