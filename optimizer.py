@@ -30,10 +30,10 @@ def get_optimizer(model: torch.nn.Module,
   # Student code begin
   ############################################################################
 #   raise NotImplementedError('get_optimizer not implemented')
-  print(config)
-  print(optimizer_type)
-  print(learning_rate)
-  print(weight_decay)
+#   print(config)
+#   print(optimizer_type)
+#   print(learning_rate)
+#   print(weight_decay)
   if optimizer_type.lower() == 'sgd':
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
   ############################################################################

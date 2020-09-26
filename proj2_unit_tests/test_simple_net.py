@@ -9,9 +9,9 @@ def test_simple_net():
   this_simple_net = SimpleNet()
 
   _, output_dim, counter, *_ = extract_model_layers(this_simple_net)
-  print(counter['Conv2d'] )
-  print(counter['Linear'])
-  print(counter['ReLU'])
+  # print(counter['Conv2d'] )
+  # print(counter['Linear'])
+  # print(counter['ReLU'])
   assert counter['Conv2d'] >= 2
   assert counter['Linear'] >= 2
   assert counter['ReLU'] >= 2

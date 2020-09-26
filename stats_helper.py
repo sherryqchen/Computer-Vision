@@ -39,18 +39,18 @@ def compute_mean_and_std(dir_name: str) -> Tuple[np.ndarray, np.array]:
   #     subfolders.append(subFoldersPath + '/' + i)
   testfolder = os.path.join(dir_name, os.listdir(dir_name)[0])
   trainfolder = os.path.join(dir_name, os.listdir(dir_name)[1])
-  print(trainfolder)
+  # print(trainfolder)
   for testSub in os.listdir(testfolder):
       subfolders.append(testfolder + '/' + testSub)
   for trainSub in os.listdir(trainfolder):
       subfolders.append(trainfolder + '/' + trainSub)
-  print(subfolders)
+  # print(subfolders)
   # # images under subfolders
   for folders in subfolders:
     pilImg = []
     for filename in os.listdir(folders):
       filename = folders + '/' + filename
-      print(filename)
+      # print(filename)
       pilImg = Image.open(filename).convert('L')
       pilImg = np.array(pilImg).astype('float32')
       pilImg /= 255
@@ -60,8 +60,8 @@ def compute_mean_and_std(dir_name: str) -> Tuple[np.ndarray, np.array]:
   scaler = StandardScaler().partial_fit(dataset)
   mean = scaler.mean_
   std = scaler.scale_
-  print(f'mean: {mean}')
-  print(f'std: {std}')
+  # print(f'mean: {mean}')
+  # print(f'std: {std}')
   # raise NotImplementedError('compute_mean_and_std not implemented')
 
   ############################################################################

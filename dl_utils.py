@@ -52,16 +52,9 @@ def compute_loss(model: torch.nn.Module,
   ############################################################################
   # Student code begin
   ############################################################################
-  # print(is_normalize)
-  # print(model_output)
-  # print(target_labels)
-  # print(model_output.shape[0])
-  # print(target_labels.shape)
-  loss_criterion = model.loss_criterion 
-  # print(loss_criterion)
-  loss = loss_criterion(model_output, target_labels)
+  loss =  model.loss_criterion(model_output, target_labels)
   if is_normalize:
-    loss = loss / model_output.shape[0]
+    loss /= model_output.shape[0]
   # print(loss)
   # raise NotImplementedError('compute_loss not implemented')
   ############################################################################
