@@ -29,40 +29,15 @@ def compute_mean_and_std(dir_name: str) -> Tuple[np.ndarray, np.array]:
   ############################################################################
   # Student code begin
   ############################################################################
-  subfolders = []
-  dataset = np.array([])
-  # subfolders under test/train folders
-  # for trFolders in os.listdir(dir_name):
-  #   subFoldersPath = os.path.join(dir_name, trFolders)
-  #   # print(subFoldersPath)
-  #   for i in os.listdir(subFoldersPath):
-  #     subfolders.append(subFoldersPath + '/' + i)
-  testfolder = os.path.join(dir_name, os.listdir(dir_name)[0])
-  trainfolder = os.path.join(dir_name, os.listdir(dir_name)[1])
-  # print(trainfolder)
-  for testSub in os.listdir(testfolder):
-      subfolders.append(testfolder + '/' + testSub)
-  for trainSub in os.listdir(trainfolder):
-      subfolders.append(trainfolder + '/' + trainSub)
-  # print(subfolders)
-  # # images under subfolders
-  for folders in subfolders:
-    pilImg = []
-    for filename in os.listdir(folders):
-      filename = folders + '/' + filename
-      # print(filename)
-      pilImg = Image.open(filename).convert('L')
-      pilImg = np.array(pilImg).astype('float32')
-      pilImg /= 255
-      pilImg = pilImg.flatten()
-      dataset = np.append(dataset, pilImg)
-  dataset = np.expand_dims(dataset, axis=1)
-  scaler = StandardScaler().partial_fit(dataset)
-  mean = scaler.mean_
-  std = scaler.scale_
-  # print(f'mean: {mean}')
-  # print(f'std: {std}')
-  # raise NotImplementedError('compute_mean_and_std not implemented')
+  files = glob.glob(os.path.join(dir_name, '*', '*', '*.jpg')) 
+  scaler = StandardScaler(with_mean=True, with_std=True) 
+  for fileName in files: 
+      with open(fileNname, 'rb') as f: 
+          img = np.asarray(Image.open(f).convert('L'), dtype='float32')
+          img /= 255.0 
+          scaler.partial_fit(img.reshape(-1, 1)) 
+          mean = scaler.mean_ 
+          std = scaler.scale_ 
 
   ############################################################################
   # Student code end

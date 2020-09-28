@@ -19,7 +19,13 @@ def predict_labels(model_output: torch.tensor) -> torch.tensor:
   ############################################################################
   # Student code begin
   ############################################################################
+  # print(model_output)
+  # predicted_labels = torch.ones(model_output.shape[0])
+  # print(predicted_labels.shape)
+  # print(f'model_output.shape: {model_output.shape}')
   predicted_labels = torch.argmax(model_output)
+  # print(model_output.type)
+  # print(predicted_labels.shape)
   # raise NotImplementedError('predict_labels not implemented')
   ############################################################################
   # Student code end
