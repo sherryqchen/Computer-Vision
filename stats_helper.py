@@ -30,7 +30,7 @@ def compute_mean_and_std(dir_name: str) -> Tuple[np.ndarray, np.array]:
   # Student code begin
   ############################################################################
   files = glob.glob(os.path.join(dir_name, '*', '*', '*.jpg')) 
-  scaler = StandardScaler(with_mean=True, with_std=True) 
+  scaler = StandardScaler() 
   for fileName in files: 
       with open(fileName, 'rb') as f: 
           img = np.asarray(Image.open(f).convert('L'), dtype='float32')
