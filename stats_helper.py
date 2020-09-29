@@ -32,7 +32,7 @@ def compute_mean_and_std(dir_name: str) -> Tuple[np.ndarray, np.array]:
   files = glob.glob(os.path.join(dir_name, '*', '*', '*.jpg')) 
   scaler = StandardScaler(with_mean=True, with_std=True) 
   for fileName in files: 
-      with open(fileNname, 'rb') as f: 
+      with open(fileName, 'rb') as f: 
           img = np.asarray(Image.open(f).convert('L'), dtype='float32')
           img /= 255.0 
           scaler.partial_fit(img.reshape(-1, 1)) 
