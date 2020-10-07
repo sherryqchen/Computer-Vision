@@ -2,18 +2,10 @@
 Testing for models
 '''
 
-<<<<<<< HEAD
 import torch
 import torch.nn as nn
 
 from collections import Counter
-=======
-from collections import Counter
-
-import torch
-import torch.nn as nn
-
->>>>>>> 2960f1699cce12147d2912bfc986493cde2075b9
 
 def flatten_layers(layers):
   '''
