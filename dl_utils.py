@@ -27,7 +27,11 @@ def predict_labels(model_output: torch.tensor) -> torch.tensor:
   # print(model_output.type)
   # print(predicted_labels.shape)
   # raise NotImplementedError('predict_labels not implemented')
+<<<<<<< HEAD
   #############################################################################
+=======
+  ############################################################################
+>>>>>>> 2960f1699cce12147d2912bfc986493cde2075b9
   # Student code end
   ############################################################################
 

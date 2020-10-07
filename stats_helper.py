@@ -38,6 +38,10 @@ def compute_mean_and_std(dir_name: str) -> Tuple[np.ndarray, np.array]:
           scaler.partial_fit(img.reshape(-1, 1)) 
           mean = scaler.mean_ 
           std = scaler.scale_ 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2960f1699cce12147d2912bfc986493cde2075b9
   ############################################################################
   # Student code end
   ############################################################################

@@ -34,7 +34,12 @@ def get_optimizer(model: torch.nn.Module,
   elif optimizer_type == 'adam':
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
   ############################################################################
+<<<<<<< HEAD
   # Student code end
   ############################################################################
 
+=======
+#   # Student code end
+#   ############################################################################
+>>>>>>> 2960f1699cce12147d2912bfc986493cde2075b9
   return optimizer
