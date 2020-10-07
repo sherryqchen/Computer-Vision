@@ -2,18 +2,10 @@
 Testing for models
 '''
 
-<<<<<<< HEAD
 import torch
 import torch.nn as nn
 
 from collections import Counter
-=======
-from collections import Counter
-
-import torch
-import torch.nn as nn
-
->>>>>>> 2960f1699cce12147d2912bfc986493cde2075b9
 
 def flatten_layers(layers):
   '''
@@ -55,7 +47,3 @@ def extract_model_layers(model: nn.Module):
       num_params_nograd += param.numel()
 
   return layers, layers[-1].out_features, layers_count, num_params_grad, num_params_nograd
-<<<<<<< HEAD
-
-=======
->>>>>>> 2960f1699cce12147d2912bfc986493cde2075b9
