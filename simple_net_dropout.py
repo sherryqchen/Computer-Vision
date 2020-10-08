@@ -18,8 +18,23 @@ class SimpleNetDropout(nn.Module):
     ############################################################################
     # Student code begin
     ############################################################################
+    # raise NotImplementedError('SimpleNetDropout not initialized')
+    self.cnn_layers.add_module("conv_1", torch.nn.Conv2d(1, 10, kernel_size=5))
+    self.cnn_layers.add_module("maxpool_1", torch.nn.MaxPool2d(kernel_size=3))
+    self.cnn_layers.add_module("relu_1", torch.nn.ReLU())
+    self.cnn_layers.add_module("conv_2", torch.nn.Conv2d(10, 20, kernel_size=5))
+    self.cnn_layers.add_module("maxpool_2", torch.nn.MaxPool2d(kernel_size=3))
+    self.cnn_layers.add_module("relu_2", torch.nn.ReLU())
 
-    raise NotImplementedError('SimpleNetDropout not initialized')
+    self.fc_layers.add_module("Flatten", torch.nn.Flatten())
+    self.fc_layers.add_module("fc1", torch.nn.Linear(500, 100))
+    self.fc_layers.add_module("dropout1", torch.nn.Dropout(p=0.5))
+    self.fc_layers.add_module("fc2", torch.nn.Linear(100, 15))
+    # self.fc_layers.add_module("dropout2", torch.nn.Dropout(p=0.2))
+
+    # self.loss_criterion = nn.KLDivLoss(reduction='sum')
+    self.loss_criterion = nn.CrossEntropyLoss(reduction = 'sum')
+
 
     ############################################################################
     # Student code end
@@ -40,7 +55,9 @@ class SimpleNetDropout(nn.Module):
     ############################################################################
     # Student code begin
     ############################################################################
-    raise NotImplementedError('forward function not implemented')
+    # raise NotImplementedError('forward function not implemented')
+    model_output = self.cnn_layers(x)
+    model_output = self.fc_layers(model_output)
 
     ############################################################################
     # Student code end
