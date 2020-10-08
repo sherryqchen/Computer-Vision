@@ -56,9 +56,9 @@ def get_data_augmentation_transforms(inp_size: Tuple[int, int],
       ############################################################################
       # Student code begin
       ############################################################################
-      transforms.ColorJitter(brightness=0.25, contrast=0.25)
-      transforms.RandomHorizontalFlip(p=0.5)
-      transforms.RandomResizedCrop(size=inp_size)
+      transforms.ColorJitter(brightness=0.25, contrast=0.25),
+      transforms.RandomHorizontalFlip(),
+      transforms.Resize(size=inp_size),
       transforms.ToTensor(),
       transforms.Normalize(mean=pixel_mean, std=pixel_std)
       ############################################################################

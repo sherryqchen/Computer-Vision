@@ -62,7 +62,6 @@ class SimpleNet(nn.Module):
     # raise NotImplementedError('forward function not implemented')
     model_output = self.cnn_layers(x)
     model_output = self.fc_layers(model_output)
-    # print(model_output.shape)
     # print(model_output)
     ############################################################################
     # Student code end
